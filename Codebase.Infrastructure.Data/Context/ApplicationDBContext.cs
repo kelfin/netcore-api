@@ -17,4 +17,5 @@ public class ApplicationDBContext: DbContext
         => options.UseSqlite($"Data Source={DbPath}");
 
     public DbSet<Book> Books { get; set; }
+    public DbSet<User> Users { get; set; }
 }

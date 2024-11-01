@@ -13,7 +13,7 @@ public class UserLoginEndpoint : Endpoint<Request>
 
     public override async Task HandleAsync(Request req, CancellationToken ct)
     {
-        if (await CredentialsAreValid(req.Username, req.Password, ct))
+        if (await CredentialsAreValid(req.Email, req.Password, ct))
         {
             var jwtToken = JwtBearer.CreateToken(
                 o =>
@@ -21,14 +21,14 @@ public class UserLoginEndpoint : Endpoint<Request>
                     o.SigningKey = AppSetting.SigningKey;
                     o.ExpireAt = DateTime.UtcNow.AddMinutes(AppSetting.ExpirationMinutes);
                     o.User.Roles.Add("Manager", "Auditor");
-                    o.User.Claims.Add(("UserName", req.Username));
+                    o.User.Claims.Add(("Email", req.Email));
                     o.User["UserId"] = "001"; //indexer based claim setting
                 });
 
             await SendAsync(
                 new
                 {
-                    req.Username,
+                    req.Email,
                     Token = jwtToken
                 });
         }
@@ -36,7 +36,7 @@ public class UserLoginEndpoint : Endpoint<Request>
             ThrowError("The supplied credentials are invalid!");
     }
 
-    private async Task<bool> CredentialsAreValid(string username, string password, CancellationToken ct){
+    private async Task<bool> CredentialsAreValid(string email, string password, CancellationToken ct){
         return true;
     }
 }

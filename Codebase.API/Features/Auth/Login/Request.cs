@@ -4,6 +4,6 @@ namespace Codebase.API.Features.Auth.Login;
 
 public class Request
 {
-    public string Username { set; get; }
+    public string Email { set; get; }
     public string Password { set; get; }
 }

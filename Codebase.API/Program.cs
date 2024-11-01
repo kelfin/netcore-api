@@ -12,8 +12,18 @@ builder.Services.AddAuthenticationJwtBearer(s => s.SigningKey = AppSetting.Signi
 builder.Services.AddAuthorization();
 builder.Services.AddFastEndpoints();
 builder.Services.SwaggerDocument();
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAll", policy =>
+    {
+        policy.AllowAnyOrigin()
+              .AllowAnyHeader()
+              .AllowAnyMethod();
+    });
+});
 
 var app = builder.Build();
+app.UseCors("AllowAll");
 app.UseDefaultExceptionHandler();
 app.UseFastEndpoints();
 app.UseSwaggerGen();
