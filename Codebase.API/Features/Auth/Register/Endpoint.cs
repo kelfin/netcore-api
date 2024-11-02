@@ -26,6 +26,9 @@ public class Endpoint: Endpoint<Request, Response>
             Password = req.Password
         });
 
+        if(!register.IsRegisterSucces)
+            ThrowError(register.ValidationMessage);
+            
         Response.Email = register.Email;
         Response.IsSuccess = register.IsRegisterSucces;
         Response.Message = register.ValidationMessage;
