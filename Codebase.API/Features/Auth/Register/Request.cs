@@ -1,11 +1,9 @@
 using System;
-using System.ComponentModel.DataAnnotations;
 
-namespace Codebase.Domain.Models;
+namespace Codebase.API.Features.Auth.Register;
 
-public class User
+public class Request
 {
-    [Key]
     public string Email { set; get; }
     public string Username { set; get; }
     public string Password { set; get; }

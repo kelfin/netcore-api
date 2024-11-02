@@ -15,11 +15,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Repositories/" />
+    <ProjectReference Include="..\Codebase.Domain\Codebase.Domain.csproj" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Codebase.Domain\Codebase.Domain.csproj" />
+    <Folder Include="Migrations/" />
   </ItemGroup>
 
 </Project>

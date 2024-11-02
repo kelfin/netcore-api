@@ -41,12 +41,7 @@ namespace Codebase.Infrastructure.Data.Migrations
 
             modelBuilder.Entity("Codebase.Domain.Models.User", b =>
                 {
-                    b.Property<int>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
-
                     b.Property<string>("Email")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Password")
@@ -57,7 +52,7 @@ namespace Codebase.Infrastructure.Data.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.HasKey("ID");
+                    b.HasKey("Email");
 
                     b.ToTable("Users");
                 });

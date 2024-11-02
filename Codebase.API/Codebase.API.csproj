@@ -17,4 +17,9 @@
     <Folder Include="Features/Book/DeleteBook/" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Codebase.Infrastructure.Data\Codebase.Infrastructure.Data.csproj" />
+    <ProjectReference Include="..\Codebase.Infrastructure.IoC\Codebase.Infrastructure.IoC.csproj" />
+  </ItemGroup>
+
 </Project>

@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc.ModelBinding;
 
 namespace Codebase.API.Features.Book.GetBookList;
 
-public class Endpoint: Endpoint<Request, Model>
+public class Endpoint: Endpoint<Request, Response>
 {
     public override void Configure()
     {
@@ -14,8 +14,8 @@ public class Endpoint: Endpoint<Request, Model>
 
     public override async Task HandleAsync(Request req, CancellationToken ct)
     {
-        var Model = new Model();
-
+        //var Model = new Model();
+        
         await SendAsync(Response);
     }
 }
