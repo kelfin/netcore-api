@@ -13,6 +13,7 @@ public class DependencyContainer
         {
             //CleanArchitecture.Application
             services.AddScoped<IAuthService, AuthService>();
+            services.AddScoped<IBookService, BookService>();
 
             //CleanArchitecture.Domain.Interfaces | CleanArchitecture.Infra.Data.Repositories
             services.AddScoped<IBookRepository, BookRepository>();
