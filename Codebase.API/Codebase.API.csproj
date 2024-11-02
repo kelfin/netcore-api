@@ -17,4 +17,10 @@
     <ProjectReference Include="..\Codebase.Infrastructure.IoC\Codebase.Infrastructure.IoC.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Features/Auth/Login/" />
+    <Folder Include="Features/Book/AddBook/" />
+    <Folder Include="Features/Book/GetBookList/" />
+  </ItemGroup>
+
 </Project>
