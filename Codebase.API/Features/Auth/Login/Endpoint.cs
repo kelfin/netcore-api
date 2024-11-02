@@ -28,9 +28,7 @@ public class Endpoint : Endpoint<Request>
                 {
                     o.SigningKey = AppSetting.SigningKey;
                     o.ExpireAt = DateTime.UtcNow.AddMinutes(AppSetting.ExpirationMinutes);
-                    //o.User.Roles.Add("Manager", "Auditor");
                     o.User.Claims.Add(("Email", req.Email));
-                    //o.User["UserId"] = "001"; //indexer based claim setting
                 });
 
             await SendAsync(

@@ -1,8 +1,9 @@
 using System;
+using Codebase.Application.ViewModels;
 
 namespace Codebase.API.Features.Book.GetBookList;
 
 public class Response
 {
-    public string Test { set; get; }
+    public List<BookViewModel> Books {set;get;}
 }

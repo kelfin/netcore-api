@@ -1,21 +1,26 @@
 using System.Net;
+using Codebase.Application.Interfaces;
 using FastEndpoints;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 
 namespace Codebase.API.Features.Book.GetBookList;
 
-public class Endpoint: Endpoint<Request, Response>
+public class Endpoint: EndpointWithoutRequest<Response>
 {
-    public override void Configure()
+    private IBookService _bookService;
+    public Endpoint(IBookService bookService)
     {
-        //AllowAnonymous();
-        Get("get-book-list");
+        _bookService = bookService;
     }
 
-    public override async Task HandleAsync(Request req, CancellationToken ct)
+    public override void Configure()
     {
-        //var Model = new Model();
-        
+        Get("book/get-list");
+    }
+
+    public override async Task HandleAsync(CancellationToken ct)
+    {
+        Response.Books = _bookService.GetBookList();
         await SendAsync(Response);
     }
 }
